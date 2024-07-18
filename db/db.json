@@ -1,27 +1,7 @@
 [
-    {
-      // This is a note object. It has a title, text, and an id.
-      "title": "Test Title", // The title of the note is "Test Title"
-      "text": "Test text", // The text of the note is "Test text"
-      "id": "test_id" // The id of the note is "test_id"
-    },
-    {
-      // This is another note object.
-      "title": "Saturday", // The title of the note is "Saturday"
-      "text": "yard work", // The text of the note is "yard work"
-      "id": 4 // The id of the note is 4
-    },
-    {
-      // This is another note object.
-      "title": "Take Note", // The title of the note is "Take Note"
-      "text": "Take Note heree\n\n\n", // The text of the note is "Take Note heree\n\n\n"
-      "id": 4 // The id of the note is 4
-    },
-    {
-      // This is another note object.
-      "title": "Take Note Here", // The title of the note is "Take Note Here"
-      "text": "Test Note", // The text of the note is "Test Note"
-      "id": 4 // The id of the note is 4
-    }
-  ]
-  
+  {
+    "title": "Test Title",
+    "text": "Test text",
+    "id": "test_id"
+  }
+]

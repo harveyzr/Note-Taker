@@ -1,3 +1,4 @@
+/* The height of the html and body elements is set to 100% to ensure they take up the full height of the viewport. The margin and padding are set to 0 to remove any default spacing. */
 html,
 body {
   height: 100%;
@@ -5,10 +6,12 @@ body {
   padding: 0;
 }
 
+/* The .save-note, .new-note, and .clear-btn classes are initially hidden with display: none. */
 .save-note, .new-note, .clear-btn {
   display: none;
 }
 
+/* The .icons class sets the margin on the left and right to 15px, the font size to 1.5rem, and the cursor to pointer, indicating an interactive element. */
 .icons {
   margin-left: 15px;
   margin-right: 15px;
@@ -16,6 +19,7 @@ body {
   cursor: pointer;
 }
 
+/* The .note-textarea and .note-title classes set the color to black, the width to 100%, and remove the outline and border. */
 .note-textarea,
 .note-title {
   color: #000000;
@@ -24,23 +28,27 @@ body {
   border: none;
 }
 
+/* The .note-textarea class disables resizing, sets the height to the remaining space after subtracting 63px, and adds padding at the top. */
 .note-textarea {
   resize: none;
   height: calc(100% - 63px);
   padding-top: 15px;
 }
 
+/* The .note-title class sets the height to 50px, the top margin to 13px, and the font size to 3rem. */
 .note-title {
   height: 50px;
   margin-top: 13px;
   font-size: 3rem;
 }
 
+/* The .note-title:read-only and .note-textarea:read-only classes change the color to a lighter shade of gray when the note title and textarea are read-only. */
 .note-title:read-only,
 .note-textarea:read-only {
   color: #757575;
 }
 
+/* The .list-container .card class sets the height to the viewport height minus 70px and removes the bottom border and bottom border radius. */
 .list-container .card {
   height: calc(100vh - 70px);
   border-bottom: none;
@@ -48,10 +56,12 @@ body {
   border-bottom-left-radius: 0;
 }
 
+/* The .list-container class removes the left padding. */
 .list-container {
   padding-left: 0;
 }
 
+/* The .list-container .list-group, .list-container .list-group-item:first-child, and .list-container .card classes remove the top border and top border radius. */
 .list-container .list-group,
 .list-container .list-group-item:first-child,
 .list-container .card {
@@ -60,16 +70,19 @@ body {
   border-top-left-radius: 0;
 }
 
+/* The .list-item-title class sets the display to inline-block and the width to 75%. */
 .list-item-title {
   display: inline-block;
   width: 75%;
 }
 
+/* The .list-container i class sets the font size to 1.1rem and the cursor to pointer, indicating an interactive element. */
 .list-container i {
   font-size: 1.1rem;
   cursor: pointer;
 }
 
+/* The .list-container .list-group-item class removes the left and right borders, sets the padding to 20px, and changes the cursor to pointer, indicating an interactive element. */
 .list-container .list-group-item {
   border-left: none;
   border-right: none;

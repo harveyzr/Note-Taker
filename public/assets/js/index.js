@@ -1,3 +1,4 @@
+// Define jQuery objects for various HTML elements
 var $noteTitle = $(".note-title");
 var $noteText = $(".note-textarea");
 var $saveNoteBtn = $(".save-note");
@@ -10,7 +11,7 @@ var activeNote = {};
 // A function for getting all notes from the db
 var getNotes = function() {
   return $.ajax({
-    url: "/api/notes"  ,
+    url: "/api/notes",
     method: "GET"
   });
 };
@@ -24,7 +25,7 @@ var saveNote = function(note) {
   });
 };
 
-// BONUS A function for deleting a note from the db
+// A function for deleting a note from the db
 var deleteNote = function(id) {
   return $.ajax({
     url: "api/notes/" + id,
@@ -62,7 +63,7 @@ var handleNoteSave = function() {
   });
 };
 
-// BONUS Delete the clicked note
+// Delete the clicked note
 var handleNoteDelete = function(event) {
   // prevents the click listener for the list from being called when the button inside of it is clicked
   event.stopPropagation();
@@ -87,7 +88,7 @@ var handleNoteView = function() {
   renderActiveNote();
 };
 
-// Sets the activeNote to and empty object and allows the user to enter a new note
+// Sets the activeNote to an empty object and allows the user to enter a new note
 var handleNewNoteView = function() {
   activeNote = {};
   renderActiveNote();
@@ -132,6 +133,7 @@ var getAndRenderNotes = function() {
   });
 };
 
+// Event listeners
 $saveNoteBtn.on("click", handleNoteSave);
 $noteList.on("click", ".list-group-item", handleNoteView);
 $newNoteBtn.on("click", handleNewNoteView);

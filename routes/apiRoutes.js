@@ -1,61 +1,89 @@
-// const notesData = require("../data/notesData");
-const fs = require("fs");
-const util = require("util");
-const app = require("express").Router();
+// Importing required modules
+const fs = require("fs"); // File system module for handling file operations
+const util = require("util"); // Utility module for promisifying functions
+const express = require("express"); // Importing Express framework
+const app = express.Router(); // Creating a new router object from Express
+
+// Promisifying the file read and write functions for asynchronous use
 const writeFileAsync = util.promisify(fs.writeFile);
 const readFileAsync = util.promisify(fs.readFile);
-var notesData;
 
-//module.exports = function(app) {
-// GET request
-app.get("/notes", (req, res) => {
-  // Reads the notes from JSON file
-  readFileAsync("db/db.json", "utf8").then(function (data) {
-    // Parse data to get an array of objects
+// Variable to hold the notes data
+let notesData = [];
+
+// GET request to retrieve all notes
+app.get("/notes", async (req, res) => {
+  try {
+    // Asynchronously read the notes from the JSON file
+    const data = await readFileAsync("db/db.json", "utf8");
+    // Parse the JSON data to convert it into an array of note objects
     notesData = JSON.parse(data);
-    //
+    // Send the notes data back as a JSON response
     res.json(notesData);
-  });
+  } catch (error) {
+    // Handle errors during file reading
+    console.error("Error reading notes:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
-// POST  request
-app.post("/notes", (req, res) => {
-  readFileAsync("db/db.json", "utf8").then(function (data) {
-    // Parse data to get an array of objects
+// POST request to add a new note
+app.post("/notes", async (req, res) => {
+  try {
+    // Asynchronously read the current notes from the JSON file
+    const data = await readFileAsync("db/db.json", "utf8");
+    // Parse the JSON data to get the existing notes
     notesData = JSON.parse(data);
 
-    let newNote = req.body;
-    let currentID = notesData.length;
+    // Create a new note object from the request body
+    const newNote = { ...req.body, id: notesData.length + 1 }; // Assign a new ID
 
-    newNote.id = currentID + 1;
-    // Add new note to the array of note objects
+    // Add the new note to the existing notes array
     notesData.push(newNote);
 
-    notesData = JSON.stringify(notesData);
+    // Convert the updated notes array back to a JSON string
+    const updatedNotes = JSON.stringify(notesData);
 
-    writeFileAsync("db/db.json", notesData).then(function (data) {
-      console.log("Note has been added.");
-    });
-    res.json(notesData);
-  });
-});
-
-// DELETE request
-app.delete("/notes/:id", (req, res) => {
-  let selID = parseInt(req.params.id);
-  //  Read JSON file
-  for (let i = 0; i < notesData.length; i++) {
-    if (selID === notesData[i].id) {
-      notesData.splice(i, 1);
-      let noteJSON = JSON.stringify(notesData, null, 2);
-
-      writeFileAsync("db/db.json", noteJSON).then(function () {
-        console.log("Note has been deleted.");
-      });
-    }
+    // Asynchronously write the updated notes back to the JSON file
+    await writeFileAsync("db/db.json", updatedNotes);
+    console.log("Note has been added.");
+    
+    // Send the updated notes data back as a JSON response
+    res.json(updatedNotes);
+  } catch (error) {
+    // Handle errors during file reading or writing
+    console.error("Error adding note:", error);
+    res.status(500).send("Internal Server Error");
   }
-  res.json(notesData);
 });
-//};
 
+// DELETE request to remove a note by ID
+app.delete("/notes/:id", async (req, res) => {
+  const selID = parseInt(req.params.id); // Parse the ID from the request parameters
+
+  try {
+    // Asynchronously read the current notes from the JSON file
+    const data = await readFileAsync("db/db.json", "utf8");
+    notesData = JSON.parse(data); // Parse the JSON data
+
+    // Filter out the note with the specified ID
+    notesData = notesData.filter(note => note.id !== selID);
+
+    // Convert the updated notes array back to a JSON string
+    const updatedNotes = JSON.stringify(notesData, null, 2);
+
+    // Asynchronously write the updated notes back to the JSON file
+    await writeFileAsync("db/db.json", updatedNotes);
+    console.log("Note has been deleted.");
+
+    // Send the updated notes data back as a JSON response
+    res.json(notesData);
+  } catch (error) {
+    // Handle errors during file reading or writing
+    console.error("Error deleting note:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Exporting the app for use in other modules
 module.exports = app;

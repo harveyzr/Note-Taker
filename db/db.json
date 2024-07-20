@@ -1,7 +1,22 @@
 [
   {
-    "title": "Test Title",
-    "text": "Test text",
-    "id": "test_id"
+    "title": "Recipes",
+    "text": "1. Pasta with tomato sauce, 2. Chicken stir-fry, 3. Chocolate chip cookies.",
+    "id": "recipes_id_1"
+  },
+  {
+    "title": "Book Summaries",
+    "text": "Summarized chapters 1-5 of 'The Great Gatsby' for English class.",
+    "id": "book_summaries_id_2"
+  },
+  {
+    "title": "Study Notes",
+    "text": "Reviewed key concepts for the upcoming biology exam.",
+    "id": "study_notes_id_3"
+  },
+  {
+    "title": "Meeting Action Items",
+    "text": "Assigned tasks: 1. Follow up with client, 2. Prepare presentation slides.",
+    "id": "action_items_id_4"
   }
 ]

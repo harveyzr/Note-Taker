@@ -1,4 +1,4 @@
-# Social-Network-Api
+# Note taker
 
 ## Table of Contents
 

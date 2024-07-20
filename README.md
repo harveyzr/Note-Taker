@@ -6,26 +6,25 @@
  - [User Story](#user-story)
  - [Acceptance Criteria](#acceptance-criteria)
  - [Technologies](#technologies)
- - [Tests](#tests)
  - [Images](#images)
  - [Link To Recorded Video](#link-to-recorded-videos)
  - [Link to GitHub Pages ](#link-to-gethub-website)
  - [Skills Used](#skills-used)
 
  ## Description
-This API is designed for a social network web application that allows users to share their thoughts, react to friends' thoughts, and manage a friends list. Here’s a detailed breakdown of the technologies and functionalities involved:
+This API is designed for a note-taking web application that allows users to create, edit, and manage their notes seamlessly. Here’s a detailed breakdown of the technologies and functionalities involved:
 
- Social-Network is the seven-tenth challenge for the Ohio State coding boot camp.
--	My motivation for this project was to become proficient at coding backend with JavaScript, Express.js, Node.js, MongoDb, Mongoose, Insomnia, Moment.js.  
--	Building this project allowed me to implement coding techniques that I have been studying for the 17 weeks. 
--	This page was a perfect example of real-world practices and how to write backend code. 
--	I learned how to code and test routes for a backend Social-Network.  
+- Note Taking App is a comprehensive project developed as part of the Ohio State coding boot camp.
+- My motivation for this project was to enhance my skills in backend development using JavaScript, Express.js, Node.js, and MongoDB, alongside tools like Mongoose, Insomnia, and Moment.js.
+- Building this project provided me with an opportunity to apply the coding techniques I have been studying for 17 weeks, specifically focusing on CRUD (Create, Read, Update, Delete) operations essential for note management.
+- This application serves as a practical example of real-world software development practices and demonstrates how to effectively write backend code for a note-taking application.
+- Through this project, I gained valuable experience in coding and testing routes for a backend API tailored for a note-taking application, ensuring smooth functionality for users managing their notes.
 
  ## User Story
-- AS A social media startup
-- I WANT an API for my social network that uses a NoSQL database
-- SO THAT my website can handle large amounts of unstructured data
- 
+- AS A small business owner
+- I WANT to be able to write and save notes
+- SO THAT I can organize my thoughts and keep track of tasks I need to complete
+
  ## Acceptance Criteria
 - GIVEN a note-taking application
 - WHEN I open the Note Taker
@@ -46,19 +45,6 @@ This API is designed for a social network web application that allows users to s
     - Routing: Express.js handles the routing for our API, directing HTTP requests to the appropriate handlers.
     - Middleware: Utilizes middleware for parsing JSON, handling errors, and managing sessions/authentication.
 
-[MongoDB](https://www.mongodb.com/)
-   - Database: MongoDB serves as the database, storing information about users, thoughts, reactions, and friend lists.
-   -  NoSQL Database: Allows for flexible and scalable storage of JSON-like documents.
-
-[Mongoose](https://mongoosejs.com/)
-   - Object Data Modeling (ODM): Mongoose provides a straightforward, schema-based solution to model our application    data.
-   - Schema Definitions: Defines schemas for users, thoughts, and reactions, ensuring data consistency and integrity.
-   -  Validation and Middleware: Offers built-in validation and middleware support to enforce rules and perform actions before or after saving data.
-
-[Moment.js](https://www.npmjs.com/package/moment)
-   - Timestamp Formatting: Moment.js is used to format timestamps, providing readable and consistent date and time    formatting across the application.
-   - Date Manipulation: Simplifies date manipulation and formatting, making it easier to display human-readable timestamps.
-
 [Insomnia](https://insomnia.rest/)
    - API Testing: Insomnia is utilized to test API endpoints and ensure they work correctly.
    - Seed Data Creation: Facilitates the creation of seed data by sending HTTP requests to populate the database with initial data for testing and development.
@@ -67,26 +53,6 @@ This API is designed for a social network web application that allows users to s
 
 [Node.js](https://nodejs.org/en/)
 
-## Tests
-Insomnia plays a crucial role in managing the user database for our social network web application. It is utilized for various operations, including adding, updating, and removing entities within the database. Here’s a breakdown of how Insomnia is employed:
-
-   **USER**
-   - Create a new user: `POST /api/users`
-   - Get all users: `GET /api/users`
-   - Get a single user by its `id`: `GET /api/users/:userId`
-   - Update a user by its `id`: `PUT /api/users/:userId`
-   - Delete a user by its `id`: `DELETE /api/user/:userId`
-
-   **THOUGHT**
-   - Create a new thought: `POST /api/thoughts/`
-   - Get all thoughts: `GET /api/thoughts/`
-   - Get a single thought by its `id`: `GET /api/thoughts/:thoughtId`
-   - Update a thought by its `id`: `PUT /api/thoughts/:thoughtId`
-   - Delete a thought by its `id`: `DELETE /api/thoughts/:thoughtId`
-
-   **REACTION**
-   - Create a reaction: `POST /api/thoughts/:thoughtId/reactions`
-   - Delete a reaction by the `reactionId`: `DEL /api/thoughts/:thoughtId/reactions/:reactionId`
 
  ## Images
 ![Website Preview](public/assets/img/Social%20Api.gif)
@@ -105,7 +71,4 @@ https://github.com/harveyzr/Social-Network-Api
  ## Skills Used
 - node 
 - JavaScript
-- Insomnia
-- Mongoose
-- MogoDB
 - Express.js

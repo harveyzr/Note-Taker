@@ -55,14 +55,8 @@ This API is designed for a note-taking web application that allows users to crea
 
 
  ## Images
-![Website Preview](public/assets/img/Social%20Api.gif)
+![Website Preview](public/images/Note%20taker.gif)
  
- ## Link to recorded videos
-[Part 1](https://www.loom.com/share/2e998435c90441caa3a8c48f17949711?sid=b954204d-4c99-432e-8574-9de211fc47ec)
-
-[part 2](https://www.loom.com/share/f2376b3e73124e8baabbb3b1a77c5f22?sid=89a4ba28-b8af-4251-b7c6-2c34c388e111)
-
-[part 3](https://www.loom.com/share/e36b8c752b8d432bbb326d71ccd6ac0c?sid=7ee6191d-4366-48b0-91d4-35eacdb74600)
  
 ## Link to GetHub Website
 https://github.com/harveyzr/Social-Network-Api
